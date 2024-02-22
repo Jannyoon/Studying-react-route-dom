@@ -2,7 +2,7 @@
   --color-fontColor : #72A603;
   --color-navbarColor : #E5F2B6;
   --color-pointColor : #EAF207;
-
+  --color-fontBrownColor : #594827;
   --size-ContainerWidth : 800px;
   --sie-ContainerHeight : 600px;
 }
@@ -49,6 +49,50 @@ code {
 }
 
 
+.navbar {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+.listFont {
+  margin: 10px;
+  font-size : 30px;
+  font-weight: bolder;
+  color : var(--color-fontBrownColor)
+  
+}
+
+.goto {
+  display: flex;
+  justify-content: center;
+  
+}
+
+ul {
+  list-style: none;
+  padding : 0;
+}
+
+li {
+  margin : 10px;
+  padding : 5px 30px;
+  background-color: white;
+  border-radius: 10px;
+  transition: transform 150ms ease-out;
+}
+
+li:hover {
+  background-color: var(--color-pointColor);
+  transform: scale(1.1);
+}
+
+.photoList {
+  font-size: 15px;
+  font-weight: bolder;
+  color : var(--color-fontBrownColor);
+  
+}
 
 section {
   width : 100%;

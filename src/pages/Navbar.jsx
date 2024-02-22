@@ -1,10 +1,9 @@
 import React from 'react';
 import { useState } from 'react';
-import { useNavigate } from 'react-router-dom';
+import { Link, useNavigate } from 'react-router-dom';
 
 export default function Navbar() {
   const [text, setText] = useState("");
-  //const [photoNum, setPhotoNum] = useState(1);
   const navigate = useNavigate();
 
   const handleChange = (e)=>{
@@ -14,33 +13,33 @@ export default function Navbar() {
   const handleSubmit = (e)=>{
     e.preventDefault();
     console.log(text);
-    //setPhotoNum(text);
     setText('');
-    navigate(`/:${text}`)
-
+    if (text>=1 && text<=6) navigate(`/:${text}`); //해당 숫자까지만 입력 가능
+    else return;
   }
 
   return (
     <div className='navbar'>
-      <span>목록</span>
+      
+      <span className='listFont'>LIST</span>
       <form onSubmit={handleSubmit}>
-        <div>
-          GO TO 
+        <div className='goto'>
           <input 
           value={text}
           placeholder='Number'
           onChange={handleChange}
           />
-          <button type="submit">확인</button>
+          <button type="submit">GO!</button>
         </div>
       </form>
-
-      <div>1</div>
-      <div>2</div>
-      <div>3</div>
-      <div>4</div>
-      <div>5</div>
-      <div>6</div>
+      <ul>
+        <li><Link to={'/1'} style={{textDecoration : "none"}} className='photoList'>Photo 1</Link></li>
+        <li><Link to={'/2'} style={{textDecoration : "none"}} className='photoList'>Photo 2</Link></li>
+        <li><Link to={'/3'} style={{textDecoration : "none"}} className='photoList'>Photo 3</Link></li>
+        <li><Link to={'/4'} style={{textDecoration : "none"}} className='photoList'>Photo 4</Link></li>
+        <li><Link to={'/5'} style={{textDecoration : "none"}} className='photoList'>Photo 5</Link></li>
+        <li><Link to={'/6'} style={{textDecoration : "none"}} className='photoList'>Photo 6</Link></li>
+      </ul>
 
     </div>
   );
